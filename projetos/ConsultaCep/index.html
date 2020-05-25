@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsultaCep</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+    <header class="container">
+        <h1>Consulta<span>CEP</span></h1>
+        <p>Consulte os dados de um Cep aqui!</p>
+        <div class="buscar">
+            <input type="text" class="inputCep" placeholder="Digite seu cep aqui, Ex.:01001000">
+            <button class="consultarCep"><i class="fas fa-search-location"></i></button>
+        </div>
+    </header>
+    <main class="container">
+        <div class="datas">
+            <h4>Rua: <span class="rua dataCep"></span></h4>
+            <h4>Bairro: <span class="bairro dataCep"></span></h4>
+            <h4>Cidade: <span class="cidade dataCep"></span></h4>
+            <h4>Uf: <span class="uf dataCep"></span></h4>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

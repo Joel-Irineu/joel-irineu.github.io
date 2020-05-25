@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: #262626;
+}
+.logo, .subtitle{
+    text-align: center;
+    color: #f3f3f3;
+}
+.logo span{
+    color: #2991e6;
+}
+.subtitle{
+    font-size: 15px;
+}
+.container{
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+.helloCountry{
+    margin: 50px;
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 42px;
+}
+.selctLenguages{
+    margin-top: 50px;
+}
+.simpleText{
+    margin: 2px;
+    font-size: 12px;
+    color: #f3f3f3;
+}
+.buttonSelect{
+    font-size: 10px;
+    width: 40px;
+    height: 20px;
+    padding: 2px;
+    margin: 2px;
+    background: #2991e6;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #262626;
+}
+.buttonSelect:hover{
+    transition: .4s ease-out;
+    background: #72bdfa;
+}
