@@ -156,6 +156,15 @@ h3, .formation p{
     width: 100%;
     margin-top: 40px;
 }
+.itemFormation a{
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: bold;
+}
+.itemFormation a:hover{
+    transition: .3s ease-out;
+    color: #2e3d4d;
+}
 .section03{
     padding-bottom: 30px;
 }
