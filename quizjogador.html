@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Qual jogador de futebol eu sou?</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Descubra qual jogador de futebol você é!</h2>
+        <div class="text-center mb-4">
+            <img src="https://conteudo.imguol.com.br/c/esporte/0a/2020/03/05/lionel-messi-cristiano-ronaldo-e-neymar-em-composicao-de-fotos-da-fifa-antes-da-copa-do-mundo-de-2018-1583453764233_v2_4x3.jpg"
+                alt="Neymar, Messi e Cristiano Ronaldo" class="img-fluid">
+        </div>
+        <form id="playerForm">
+            <div class="form-group">
+                <label for="cardNumber">Número do Cartão:</label>
+                <input type="text" class="form-control" id="cardNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="fullName">Nome Completo:</label>
+                <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Data de Vencimento (DD/MM):</label>
+                <input type="text" class="form-control" id="expiryDate" required>
+            </div>
+            <div class="form-group">
+                <label for="cvc">CVC:</label>
+                <input type="text" class="form-control" id="cvc" required>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="discoverPlayer()">Descobrir qual jogador eu
+                sou!</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="playerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="playerModalLabel">Você é...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="playerImage" src="" alt="Jogador" class="img-fluid">
+                    <h3 id="playerName" class="mt-3"></h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#cardNumber').mask('0000 0000 0000 0000');
+            $('#expiryDate').mask('00/00');
+            $('#cvc').mask('000');
+        });
+
+        function discoverPlayer() {
+            // Pegando os valores dos inputs (não estamos realmente utilizando para fins de lógica)
+            const cardNumber = document.getElementById('cardNumber').value;
+            const fullName = document.getElementById('fullName').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvc = document.getElementById('cvc').value;
+
+            if (cardNumber && fullName && expiryDate && cvc) {
+                // Lógica aleatória para selecionar um jogador
+                const players = [
+                    {
+                        name: 'Neymar',
+                        image: 'https://midias.correiobraziliense.com.br/_midias/jpg/2023/03/06/neymar_2_1024x768-27560987.jpg'
+                    },
+                    {
+                        name: 'Lionel Messi',
+                        image: 'https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSAHmDSOdLA5YgFlEkMmgdweIf3jyGI0EGKqU5U7TpO70GFAY48v1N51eMRpY6mbG-VzfPvgObhOwB8lX4'
+                    },
+                    {
+                        name: 'Cristiano Ronaldo',
+                        image: 'https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2023/09/02/1123511600-00033tz3kl-scaled.jpg'
+                    }
+                ];
+
+                const randomIndex = Math.floor(Math.random() * players.length);
+                const selectedPlayer = players[randomIndex];
+
+                // Atualizando a imagem e o nome no modal
+                document.getElementById('playerImage').src = selectedPlayer.image;
+                document.getElementById('playerName').innerText = selectedPlayer.name;
+
+                // Mostrando o modal
+                $('#playerModal').modal('show');
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        }
+    </script>
+</body>
+
+</html>
